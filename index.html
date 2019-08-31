@@ -52,35 +52,37 @@
             loop: true,
         });
 
+        const fade_speed = 200;
+
         $( "#brown" ).on( "click", function() {
             if ( brown.playing() ) {
-                $( "#brown" ).fadeTo( 400, 0.50 );
+                $( "#brown" ).fadeTo( fade_speed, 0.50 );
                 brown.pause();
             }
             else {
-                $( "#brown" ).fadeTo( 400, 1 );
+                $( "#brown" ).fadeTo( fade_speed, 1 );
                 brown.play();
             }
         });
 
         $( "#pink" ).on( "click", function() {
             if ( pink.playing() ) {
-                $( "#pink" ).fadeTo( 400, 0.50 );
+                $( "#pink" ).fadeTo( fade_speed, 0.50 );
                 pink.pause();
             }
             else {
-                $( "#pink" ).fadeTo( 400, 1 );
+                $( "#pink" ).fadeTo( fade_speed, 1 );
                 pink.play();
             }
         });
 
         $( "#white" ).on( "click", function() {
             if ( white.playing() ) {
-                $( "#white" ).fadeTo( 400, 0.50 );
+                $( "#white" ).fadeTo( fade_speed, 0.50 );
                 white.pause();
             }
             else {
-                $( "#white" ).fadeTo( 400, 1 );
+                $( "#white" ).fadeTo( fade_speed, 1 );
                 white.play();
             }
         });
