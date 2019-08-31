@@ -1,44 +1,88 @@
 <!doctype html>
 
-<html lang="en">
+<html>
 <head>
-    <meta charset='utf-8'>
-    <title>noise-web demo</title>
-    <meta name='description' content='noise-web demo'>
-    <meta name='author' content='Blaine Motsinger'>
+    <title>noise</title>
+    <meta name="description" content="noise">
+    <meta name="author" content="Blaine Motsinger">
+
+    <style>
+        body {
+            background-color: rgb(233,236,239);
+        }
+        .players .player {
+            float: left;
+            padding: .5em;
+            font-size: 7em;
+            color: rgb(73,83,87);
+        }
+        .players .player i {
+            opacity: 0.50;
+        }
+    </style>
 </head>
 
 <body>
-    <button id='brown'>brown</button>
-    <button id='pink'>pink</button>
-    <button id='white'>white</button>
+    <div class="players">
+        <div class="player">
+            <i id="brown" class="fa fa-align-center"></i>
+        </div>
+        <div class="player">
+            <i id="pink" class="fa fa-align-center"></i>
+        </div>
+        <div class="player">
+            <i id="white" class="fa fa-align-center"></i>
+        </div>
+    </div>
 
-    <script src='js/howler.2.1.2.min.js'></script>
-    <script src='js/jquery.3.4.1.min.js'></script>
+    <script src="js/fa.0eb6876c11.js"></script>
+    <script src="js/howler.2.1.2.min.js"></script>
+    <script src="js/jquery.3.4.1.min.js"></script>
     <script>
         const brown = new Howl({
-            src: [ 'assets/brownnoise.mp3' ],
+            src: [ "assets/brownnoise.mp3" ],
             loop: true,
         });
         const pink = new Howl({
-            src: [ 'assets/pinknoise.mp3' ],
+            src: [ "assets/pinknoise.mp3" ],
             loop: true,
         });
         const white = new Howl({
-            src: [ 'assets/whitenoise.mp3' ],
+            src: [ "assets/whitenoise.mp3" ],
             loop: true,
         });
 
-        $( '#brown' ).on( 'click', function() {
-            brown.playing() ? brown.pause() : brown.play();
+        $( "#brown" ).on( "click", function() {
+            if ( brown.playing() ) {
+                $( "#brown" ).fadeTo( 400, 0.50 );
+                brown.pause();
+            }
+            else {
+                $( "#brown" ).fadeTo( 400, 1 );
+                brown.play();
+            }
         });
 
-        $( '#pink' ).on( 'click', function() {
-            pink.playing() ? pink.pause() : pink.play();
+        $( "#pink" ).on( "click", function() {
+            if ( pink.playing() ) {
+                $( "#pink" ).fadeTo( 400, 0.50 );
+                pink.pause();
+            }
+            else {
+                $( "#pink" ).fadeTo( 400, 1 );
+                pink.play();
+            }
         });
 
-        $( '#white' ).on( 'click', function() {
-            white.playing() ? white.pause() : white.play();
+        $( "#white" ).on( "click", function() {
+            if ( white.playing() ) {
+                $( "#white" ).fadeTo( 400, 0.50 );
+                white.pause();
+            }
+            else {
+                $( "#white" ).fadeTo( 400, 1 );
+                white.play();
+            }
         });
     </script>
 </body>
