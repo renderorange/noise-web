@@ -71,6 +71,7 @@
         const opacity_thin = 0.50;
         const opacity_none = 1;
 
+        // audio play/pause and visual updates
         $( "#brown > i" ).on( "click", function() {
             if ( brown.playing() ) {
                 $( "#brown > i" ).fadeTo( fade_speed, opacity_thin );
@@ -108,6 +109,31 @@
                 $( "#white > input" ).css( "display", "block" );
                 white.play();
             }
+        });
+
+        // volume control
+        // set the howler volumes to the slider values on page load.
+        // if the page is refreshed the sliders hold their previous value,
+        // but howler does not. this ensures the values match if the page
+        // is refreshed.
+        $( function() {
+            brown.volume( $( "#brown > input" ).val() * .01 );
+            pink.volume( $( "#pink > input" ).val() * .01 );
+            white.volume( $( "#white > input" ).val() * .01 );
+        });
+
+        // range for the input value is 0-100, howler is 0.0-1.0.
+        // convert to match.
+        $( "#brown > input" ).on( "input", function() {
+            brown.volume( $( "#brown > input" ).val() * .01 );
+        });
+
+        $( "#pink > input" ).on( "input", function() {
+            pink.volume( $( "#pink > input" ).val() * .01 );
+        });
+
+        $( "#white > input" ).on( "input", function() {
+            white.volume( $( "#white > input" ).val() * .01 );
         });
     </script>
 </body>
