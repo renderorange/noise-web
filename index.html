@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <title>noise-web demo</title>
+    <meta name='description' content='noise-web demo'>
+    <meta name='author' content='Blaine Motsinger'>
+</head>
+
+<body>
+    <button id='brown'>brown</button>
+    <button id='pink'>pink</button>
+    <button id='white'>white</button>
+
+    <script src='js/howler.2.1.2.min.js'></script>
+    <script src='js/jquery.3.4.1.min.js'></script>
+    <script>
+        const brown = new Howl({
+            src: [ 'assets/brownnoise.mp3' ],
+            loop: true,
+        });
+        const pink = new Howl({
+            src: [ 'assets/pinknoise.mp3' ],
+            loop: true,
+        });
+        const white = new Howl({
+            src: [ 'assets/whitenoise.mp3' ],
+            loop: true,
+        });
+
+        $( '#brown' ).on( 'click', function() {
+            brown.playing() ? brown.pause() : brown.play();
+        });
+
+        $( '#pink' ).on( 'click', function() {
+            pink.playing() ? pink.pause() : pink.play();
+        });
+
+        $( '#white' ).on( 'click', function() {
+            white.playing() ? white.pause() : white.play();
+        });
+    </script>
+</body>
+</html>
