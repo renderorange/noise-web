@@ -114,8 +114,8 @@
         // volume control
         // set the howler volumes to the slider values on page load.
         // if the page is refreshed the sliders hold their previous value,
-        // but howler does not. this ensures the values match if the page
-        // is refreshed.
+        // but howler always initializes the values at 100%.
+        // this ensures the values match on page load.
         $( function() {
             brown.volume( $( "#brown > input" ).val() * .01 );
             pink.volume( $( "#pink > input" ).val() * .01 );
