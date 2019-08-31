@@ -11,27 +11,42 @@
             background-color: rgb(233,236,239);
         }
         .players .player {
+            width: 1em;
+            height: 1.25em;
             float: left;
             padding: .5em;
             font-size: 7em;
             color: rgb(73,83,87);
         }
-        .players .player i {
+        .players .player input, .players .player i {
+            display: block;
+            margin: auto;
             opacity: 0.50;
+        }
+        .players .player i {
+            width: 88%;
+        }
+        .players .player input {
+            width: 92%;
+            display: none;
+            padding-top: 4em;
         }
     </style>
 </head>
 
 <body>
     <div class="players">
-        <div class="player">
-            <i id="brown" class="fa fa-align-center"></i>
+        <div class="player" id="brown">
+            <i class="fa fa-align-center"></i>
+            <input type="range" min="0" max="100" step="1"></input>
         </div>
-        <div class="player">
-            <i id="pink" class="fa fa-align-center"></i>
+        <div class="player" id="pink">
+            <i class="fa fa-align-center"></i>
+            <input type="range" min="0" max="100" step="1"></input>
         </div>
-        <div class="player">
-            <i id="white" class="fa fa-align-center"></i>
+        <div class="player" id="white">
+            <i class="fa fa-align-center"></i>
+            <input type="range" min="0" max="100" step="1"></input>
         </div>
     </div>
 
@@ -53,36 +68,44 @@
         });
 
         const fade_speed = 200;
+        const opacity_thin = 0.50;
+        const opacity_none = 1;
 
-        $( "#brown" ).on( "click", function() {
+        $( "#brown > i" ).on( "click", function() {
             if ( brown.playing() ) {
-                $( "#brown" ).fadeTo( fade_speed, 0.50 );
+                $( "#brown > i" ).fadeTo( fade_speed, opacity_thin );
+                $( "#brown > input" ).css( "display", "none" );
                 brown.pause();
             }
             else {
-                $( "#brown" ).fadeTo( fade_speed, 1 );
+                $( "#brown > i" ).fadeTo( fade_speed, opacity_none );
+                $( "#brown > input" ).css( "display", "block" );
                 brown.play();
             }
         });
 
-        $( "#pink" ).on( "click", function() {
+        $( "#pink > i" ).on( "click", function() {
             if ( pink.playing() ) {
-                $( "#pink" ).fadeTo( fade_speed, 0.50 );
+                $( "#pink > i" ).fadeTo( fade_speed, opacity_thin );
+                $( "#pink > input" ).css( "display", "none" );
                 pink.pause();
             }
             else {
-                $( "#pink" ).fadeTo( fade_speed, 1 );
+                $( "#pink > i" ).fadeTo( fade_speed, opacity_none );
+                $( "#pink > input" ).css( "display", "block" );
                 pink.play();
             }
         });
 
-        $( "#white" ).on( "click", function() {
+        $( "#white > i" ).on( "click", function() {
             if ( white.playing() ) {
-                $( "#white" ).fadeTo( fade_speed, 0.50 );
+                $( "#white > i" ).fadeTo( fade_speed, opacity_thin );
+                $( "#white > input" ).css( "display", "none" );
                 white.pause();
             }
             else {
-                $( "#white" ).fadeTo( fade_speed, 1 );
+                $( "#white > i" ).fadeTo( fade_speed, opacity_none );
+                $( "#white > input" ).css( "display", "block" );
                 white.play();
             }
         });
