@@ -122,6 +122,7 @@
             white.volume( $( "#white > input" ).val() * .01 );
         });
 
+        // set howler volumes to the slider changes.
         // range for the input value is 0-100, howler is 0.0-1.0.
         // convert to match.
         $( "#brown > input" ).on( "input", function() {
